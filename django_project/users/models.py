@@ -10,8 +10,9 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     #overide the inbuilt save method
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        super().save()
+    #def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
